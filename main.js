@@ -1,3 +1,7 @@
+/*
+* Lines starting with a # are written by me.
+*/
+
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
@@ -9,6 +13,8 @@ const url = require('url')
 
 const dialog = require('electron').dialog
 
+// # Here is code from this pull request : https://github.com/electron/electron-api-demos/pull/275
+// # This solves a problem where Windows was unable to launch the app from a web link
 if (process.defaultApp) {
     // If we have the path to our app we set the protocol client to launch electron.exe with the path to our app
     if (process.argv.length >= 2) {
@@ -22,12 +28,6 @@ if (process.defaultApp) {
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-//app.on('ready', createWindow)
-
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
@@ -37,25 +37,29 @@ app.on('window-all-closed', function () {
   }
 })
 
+// # Here is what happens when the program is called by the protocol :
 app.makeSingleInstance(function (event, url) {
-  //console.log(event[2]);
-  var monUrl = event[2];
+  var monUrl = event[2]; //Here is contained the URL that triggered the app
+  
   console.log(monUrl);
 
-  var myPath = decodeURI(monUrl.split('?path=')[1]);
+  var myPath = decodeURI(monUrl.split('?path=')[1]); //We take the "parameter", which is our path to the folder we want to open
 
+  // # Some lines to prepare the opening
   const shell = require('electron').shell
-
   const os = require('os')
 
   console.log(myPath);
+
+  // # Finally, we open the folder
   console.log(shell.showItemInFolder(myPath));
 
+  // # Once we're done, we close the app
   app.quit();
 })
 
+// # Since when we launch the app for the first time via the protocol it's unable to trigger the event above,
+// # we have to call the protocol twice from the web page.
+// # So we close the app that had not the chance to open the folder under 5 seconds.
+// # This prevents us from having a lot of Electron processes.
 setTimeout(function() { app.quit(); }, 5000);
-
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
