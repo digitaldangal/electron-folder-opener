@@ -73,9 +73,9 @@ app.on('activate', function () {
 app.makeSingleInstance(function (event, url) {
   //console.log(event[2]);
   var monUrl = event[2];
-  //console.log(monUrl);
-  //console.log(String(monUrl));
-  var myPath = monUrl.split('?path=')[1];
+  console.log(monUrl);
+
+  var myPath = decodeURI(monUrl.split('?path=')[1]);
 
   const shell = require('electron').shell
 
