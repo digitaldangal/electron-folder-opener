@@ -1,44 +1,42 @@
-# electron-quick-start
+# Electron Folder Opener
 
-**Clone and run for a quick way to see Electron in action.**
+## What is this ?
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
+This is a little application based on Electron, based on the code of the [Electron quick start](https://github.com/electron/electron-quick-start) repo.
 
-**Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
+It's goal is to enable the possibility to open local folders by clicking a button or a link on a web page.
 
-A basic Electron application needs just these files:
+## How do I use it ?
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+**Warning** : This code is all but optimized, I just wanted it to work for now. So don't be afraid of the *poor* quality of the code.
 
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start).
+Clone this repo, access the directory, and run
 
-## To Use
+`npm install`
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+and
 
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-npm install
-# Run the app
-npm start
+`npm start`
+
+You will see that the program will run for 5 seconds, and then it will stop. If you want to know why, check the `main.js` file.
+
+Then, all you have to do (I hope), is to insert links that follows this model :
+
+``` html
+<a class="protocol" href="folderopener://open?path=your\path\t">Open this!</a>
 ```
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+Keep the `\t` at the end, otherwise it won't work (I have no idea why, if you know, I would be happy to know!)
 
-## Resources for Learning Electron
+In order to make it work, you will have to **double-click** the link, or make a Javascript function that will access this link twice.
 
-- [electron.atom.io/docs](http://electron.atom.io/docs) - all of Electron's documentation
-- [electron.atom.io/community/#boilerplates](http://electron.atom.io/community/#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
+Your navigator should ask you the permission to execute your app, and you can choose to always allow it.
+
+... And the folder should open when you double click on the link.
+
+## Contributing
+
+I would be very happy to hear feedback about it! As you noticed, there is a lot to do in order to make it better. So feel free to tell me what you think, suggest changes (issues or PRs)... And don't hesitate to tell if this works (or not) for you! 
 
 ## License
 
