@@ -26,7 +26,7 @@ Then, all you have to do (I hope), is to insert links that follows this model :
 <a class="protocol" href="folderopener://open?path=your\path\t">Open this!</a>
 ```
 
-Keep the `\t` at the end, otherwise it won't work (I have no idea why, if you know, I would be happy to know!)
+Keep the `\t` (or anything else of the style `\something`) at the end, otherwise it won't work (I have no idea why, if you know, I would be happy to know!)
 
 In order to make it work, you will have to **double-click** the link, or make a Javascript function that will access this link twice.
 
