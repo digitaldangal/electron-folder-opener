@@ -4,7 +4,7 @@
 
 This is a little application based on Electron, based on the code of the [Electron quick start](https://github.com/electron/electron-quick-start) repo.
 
-It's goal is to enable the possibility to open local folders by clicking a button or a link on a web page.
+It's goal is to enable the possibility to open local folders in the native file explorer by clicking a button or a link on a web page.
 
 ## How do I use it ?
 
