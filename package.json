@@ -1,6 +1,6 @@
 {
   "name": "electron-folder-opener",
-  "version": "1.0.0",
+  "version": "0.1",
   "description": "A tool to open local folders via a click on a web page",
   "main": "main.js",
   "scripts": {
