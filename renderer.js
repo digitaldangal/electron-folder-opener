@@ -16,13 +16,12 @@ let notification = new Notification('Folder Opener', {
 
 ipc.on('info', function (event, arg) {
   var myPath = arg;
-  var success = shell.showItemInFolder(myPath);
+  var success = shell.showItemInFolder(myPath + "\\t"); // The "\t" is here because Electron opens the parent folder otherwise
   var window = remote.getCurrentWindow();
-  var pathCleaned = myPath.replace("\\t", "") //Remove the "\t" before displaying it
   if (!success) {
     //Notification displayed on folder not found
     let notification = new Notification('Erreur', {
-      body: 'Dossier "' + pathCleaned + '" introuvable.',
+      body: 'Dossier "' + myPath + '" introuvable.',
     })
   }
 })
