@@ -65,7 +65,7 @@ app.on('window-all-closed', function () {
 let myPath;
 
 // # Here is what happens when the program is called by the protocol :
-app.makeSingleInstance(function (event, url) {
+var shouldquit = app.makeSingleInstance(function (event, url) {
   var monUrl = event[2]; //Here is contained the URL that triggered the app
 
   console.log(monUrl);
@@ -76,23 +76,15 @@ app.makeSingleInstance(function (event, url) {
 
   mainWindow.webContents.send(myPath);
 
-  // # Once we're done, we close the app
-  //app.quit();
 })
+
+if(shouldquit) {
+  app.quit()
+}
 
 ipc.on('asynchronous-message', function (event, arg) {
   if (arg == "ready") {
     event.sender.send('asynchronous-reply', myPath)
   }
-  if(arg == "done")
-  {
-    app.quit();
-  }
 
 })
-
-// # Since when we launch the app for the first time via the protocol it's unable to trigger the event above,
-// # we have to call the protocol twice from the web page.
-// # So we close the app that had not the chance to open the folder under 5 seconds.
-// # This prevents us from having a lot of Electron processes.
-setTimeout(function () { app.quit(); }, 5000);
