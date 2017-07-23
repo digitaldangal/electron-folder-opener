@@ -20,7 +20,7 @@ let mainWindow
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({height: 0, width: 0, transparent: true, frame: false, title: 'Folder Opener'});
+  mainWindow = new BrowserWindow({height: 0, width: 0, transparent: true, frame: false, skipTaskbar: true, title: 'Folder Opener'});
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
