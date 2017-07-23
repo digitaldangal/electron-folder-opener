@@ -9,6 +9,10 @@ const ipc = require('electron').ipcRenderer;
 
 const protocolHandlerBtn = document.getElementById('protocol-handler')
 
+let notification = new Notification('Folder Opener', {
+  body: 'Le programme est bien démarré. En attente de l\'ouverture de dossiers'
+})
+
 ipc.on('info', function (event, arg) {
   var myPath = arg;
   var reussite = shell.showItemInFolder(myPath);
