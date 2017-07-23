@@ -18,9 +18,4 @@ ipc.on('info', function (event, arg) {
       body: 'Dossier introuvable.',
     })
   }
-  else {
-    let notification = new Notification('Ok', {
-      body: 'Ok.',
-    })
-  }
 })
