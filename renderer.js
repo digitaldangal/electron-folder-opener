@@ -5,15 +5,23 @@ const shell = require('electron').shell
 const path = require('path')
 const os = require('os')
 const remote = require('electron').remote;
-const ipc = require('electron').ipcRenderer
+const ipc = require('electron').ipcRenderer;
 
 const protocolHandlerBtn = document.getElementById('protocol-handler')
 
 ipc.on('asynchronous-reply', function (event, arg) {
-    var myPath = arg;
-    var reussite = shell.showItemInFolder(myPath);
-    var window = remote.getCurrentWindow();
-    window.close();
+  var myPath = arg;
+  var reussite = shell.showItemInFolder(myPath);
+  var window = remote.getCurrentWindow();
+  if (!reussite) {
+    let notification = new Notification('Erreur', {
+      body: 'Dossier introuvable.',
+    })
+  }
+  else {
+    ipc.send('asynchronous-message', 'done')
+  }
+  window.close;
 })
 
-ipc.send('asynchronous-message', 'ping')
+ipc.send('asynchronous-message', 'ready')

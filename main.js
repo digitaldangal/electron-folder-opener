@@ -18,15 +18,15 @@ const ipc = require('electron').ipcMain
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({height: 0, width: 0, transparent: true, frame: false, title: 'Folder Opener'});
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
-    slashes: true
+    slashes: true,
   }))
 
   // Open the DevTools.
@@ -57,7 +57,8 @@ app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
-    app.quit()
+    console.log("Quit");
+    //app.quit()
   }
 })
 
@@ -80,11 +81,18 @@ app.makeSingleInstance(function (event, url) {
 })
 
 ipc.on('asynchronous-message', function (event, arg) {
-  event.sender.send('asynchronous-reply', myPath)
+  if (arg == "ready") {
+    event.sender.send('asynchronous-reply', myPath)
+  }
+  if(arg == "done")
+  {
+    app.quit();
+  }
+
 })
 
 // # Since when we launch the app for the first time via the protocol it's unable to trigger the event above,
 // # we have to call the protocol twice from the web page.
 // # So we close the app that had not the chance to open the folder under 5 seconds.
 // # This prevents us from having a lot of Electron processes.
-//setTimeout(function () { app.quit(); }, 5000);
+setTimeout(function () { app.quit(); }, 5000);
