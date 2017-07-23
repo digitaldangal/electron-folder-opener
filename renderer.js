@@ -9,16 +9,18 @@ const ipc = require('electron').ipcRenderer;
 
 const protocolHandlerBtn = document.getElementById('protocol-handler')
 
+//Notification displayed on first launch
 let notification = new Notification('Folder Opener', {
   body: 'Le programme est bien démarré. En attente de l\'ouverture de dossiers'
 })
 
 ipc.on('info', function (event, arg) {
   var myPath = arg;
-  var reussite = shell.showItemInFolder(myPath);
+  var success = shell.showItemInFolder(myPath);
   var window = remote.getCurrentWindow();
-  var pathCleaned = myPath.replace("\\t", "")
-  if (!reussite) {
+  var pathCleaned = myPath.replace("\\t", "") //Remove the "\t" before displaying it
+  if (!success) {
+    //Notification displayed on folder not found
     let notification = new Notification('Erreur', {
       body: 'Dossier "' + pathCleaned + '" introuvable.',
     })

@@ -66,11 +66,11 @@ let myPath;
 
 // # Here is what happens when the program is called by the protocol :
 var shouldquit = app.makeSingleInstance(function (event, url) {
-  var monUrl = event[2]; //Here is contained the URL that triggered the app
+  var myUrl = event[2]; //Here is contained the URL that triggered the app
 
-  console.log(monUrl);
+  console.log(myUrl);
 
-  myPath = decodeURI(monUrl.split('?path=')[1]); //We take the "parameter", which is our path to the folder we want to open
+  myPath = decodeURI(myUrl.split('?path=')[1]); //We take the "parameter", which is our path to the folder we want to open
 
   mainWindow.webContents.send('info', myPath)
 
