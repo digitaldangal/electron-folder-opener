@@ -9,7 +9,7 @@ const ipc = require('electron').ipcRenderer;
 
 const protocolHandlerBtn = document.getElementById('protocol-handler')
 
-ipc.on('asynchronous-reply', function (event, arg) {
+ipc.on('info', function (event, arg) {
   var myPath = arg;
   var reussite = shell.showItemInFolder(myPath);
   var window = remote.getCurrentWindow();
@@ -19,9 +19,8 @@ ipc.on('asynchronous-reply', function (event, arg) {
     })
   }
   else {
-    ipc.send('asynchronous-message', 'done')
+    let notification = new Notification('Ok', {
+      body: 'Ok.',
+    })
   }
-  window.close;
 })
-
-ipc.send('asynchronous-message', 'ready')

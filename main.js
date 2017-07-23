@@ -62,6 +62,8 @@ app.on('window-all-closed', function () {
   }
 })
 
+app.on('ready', createWindow)
+
 let myPath;
 
 // # Here is what happens when the program is called by the protocol :
@@ -72,9 +74,9 @@ var shouldquit = app.makeSingleInstance(function (event, url) {
 
   myPath = decodeURI(monUrl.split('?path=')[1]); //We take the "parameter", which is our path to the folder we want to open
 
-  createWindow();
+  mainWindow.webContents.send('info', myPath)
 
-  mainWindow.webContents.send(myPath);
+  console.log('Msg sent to renderer : ' + myPath);
 
 })
 
@@ -86,5 +88,4 @@ ipc.on('asynchronous-message', function (event, arg) {
   if (arg == "ready") {
     event.sender.send('asynchronous-reply', myPath)
   }
-
 })
