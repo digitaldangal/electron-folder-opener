@@ -20,7 +20,7 @@ ipc.on('info', function (event, arg) {
   var pathCleaned = myPath.replace("\\t", "")
   if (!reussite) {
     let notification = new Notification('Erreur', {
-      body: 'Dossier "'+ pathCleaned +'" introuvable.',
+      body: 'Dossier "' + pathCleaned + '" introuvable.',
     })
   }
 })
