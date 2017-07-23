@@ -13,9 +13,10 @@ ipc.on('info', function (event, arg) {
   var myPath = arg;
   var reussite = shell.showItemInFolder(myPath);
   var window = remote.getCurrentWindow();
+  var pathCleaned = myPath.replace("\\t", "")
   if (!reussite) {
     let notification = new Notification('Erreur', {
-      body: 'Dossier introuvable.',
+      body: 'Dossier "'+ pathCleaned +'" introuvable.',
     })
   }
 })
