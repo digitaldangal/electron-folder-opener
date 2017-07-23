@@ -10,7 +10,6 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
-
 const dialog = require('electron').dialog
 const ipc = require('electron').ipcMain
 
@@ -20,7 +19,7 @@ let mainWindow
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({height: 0, width: 0, transparent: true, frame: false, skipTaskbar: true, title: 'Folder Opener'});
+  mainWindow = new BrowserWindow({ height: 0, width: 0, transparent: true, frame: false, skipTaskbar: true, title: 'Folder Opener' });
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -58,7 +57,6 @@ app.on('window-all-closed', function () {
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     console.log("Quit");
-    //app.quit()
   }
 })
 
@@ -80,7 +78,7 @@ var shouldquit = app.makeSingleInstance(function (event, url) {
 
 })
 
-if(shouldquit) {
+if (shouldquit) {
   app.quit()
 }
 
