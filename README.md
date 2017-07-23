@@ -2,15 +2,13 @@
 
 ## What is this ?
 
-This is a little application based on Electron, based on the code of the [Electron quick start](https://github.com/electron/electron-quick-start) repo.
-
-It's goal is to enable the possibility to open local folders in the native file explorer by clicking a button or a link on a web page.
+This simple application built with Electron offers the possibility to open local folders of your file system at a specified path by just one click on a web page.
 
 ## How do I use it ?
 
-**Warning** : This code is all but optimized, I just wanted it to work for now. So don't be afraid of the *poor* quality of the code.
+*You will need NodeJS in order to execute this program*
 
-Clone this repo, access the directory, and run
+Clone this repo, access the `electron-folder-opener` directory, and run
 
 `npm install`
 
@@ -18,25 +16,19 @@ and
 
 `npm start`
 
-You will see that the program will run for 5 seconds, and then it will stop. If you want to know why, check the `main.js` file.
-
-Then, all you have to do (I hope), is to insert links that follows this model :
+Then you can insert in your web pages links that will trigger the program :
 
 ``` html
-<a class="protocol" href="folderopener://open?path=your\path\t">Open this!</a>
+<a class="protocol" href="folderopener://open?path=your\folder\path">Open this!</a>
 ```
 
-Keep the `\t` (or anything else of the style `\something`) at the end, otherwise it won't work (I have no idea why, if you know, I would be happy to know!)
+Your file explorer should open at the specified path on click.
 
-In order to make it work, you will have to **double-click** the link, or make a Javascript function that will access this link twice.
-
-Your navigator should ask you the permission to execute your app, and you can choose to always allow it.
-
-... And the folder should open when you double click on the link.
+If the program is not running by the time the link is clicked, the program will start and display a notification saying that it is ready to open folders. At the moment it is not possible to open the folder when the app is just launched.
 
 ## Contributing
 
-I would be very happy to hear feedback about it! As you noticed, there is a lot to do in order to make it better. So feel free to tell me what you think, suggest changes (issues or PRs)... And don't hesitate to tell if this works (or not) for you! 
+I would be very happy to hear feedback about it! So feel free to tell me what you think or suggest changes. And don't hesitate to tell if it works (or not) for you.
 
 ## License
 
