@@ -16,7 +16,7 @@ let notification = new Notification('Folder Opener', {
 
 ipc.on('info', function (event, arg) {
   var myPath = arg;
-  var success = shell.showItemInFolder(myPath + "\\t"); // The "\t" is here because Electron opens the parent folder otherwise
+  var success = shell.openItem(myPath);
   var window = remote.getCurrentWindow();
   if (!success) {
     //Notification displayed on folder not found
