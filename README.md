@@ -1,5 +1,7 @@
 # Electron Folder Opener
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/275b65a649104b88bb80e3f060ecac4d)](https://www.codacy.com/app/vb4007/electron-folder-opener?utm_source=github.com&utm_medium=referral&utm_content=Raul6469/electron-folder-opener&utm_campaign=badger)
+
 ## What is this ?
 
 This simple application built with Electron offers the possibility to open local folders of your file system at a specified path by just one click on a web page.
