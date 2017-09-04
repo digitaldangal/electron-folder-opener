@@ -83,7 +83,7 @@ if (shouldquit) {
 }
 
 ipc.on('asynchronous-message', function (event, arg) {
-  if (arg == 'ready') {
+  if (arg === 'ready') {
     event.sender.send('asynchronous-reply', myPath);
   }
 })
