@@ -36,9 +36,9 @@ function createWindow() {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    mainWindow = null
-  })
-};
+    mainWindow = null;
+  });
+}
 
 // # Here is code from this pull request : https://github.com/electron/electron-api-demos/pull/275
 // # This solves a problem where Windows was unable to launch the app from a web link
