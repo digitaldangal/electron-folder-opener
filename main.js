@@ -37,7 +37,7 @@ function createWindow() {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null
-  });
+  })
 };
 
 // # Here is code from this pull request : https://github.com/electron/electron-api-demos/pull/275
