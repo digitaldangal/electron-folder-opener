@@ -76,7 +76,7 @@ var shouldquit = app.makeSingleInstance(function (event, url) {
 
   console.log('Msg sent to renderer : ' + myPath);
 
-})
+});
 
 if (shouldquit) {
   app.quit();
