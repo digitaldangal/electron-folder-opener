@@ -86,4 +86,4 @@ ipc.on('asynchronous-message', function (event, arg) {
   if (arg === 'ready') {
     event.sender.send('asynchronous-reply', myPath);
   }
-})
+});
