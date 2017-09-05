@@ -1,6 +1,6 @@
 # Electron Folder Opener
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/275b65a649104b88bb80e3f060ecac4d)](https://www.codacy.com/app/vb4007/electron-folder-opener?utm_source=github.com&utm_medium=referral&utm_content=Raul6469/electron-folder-opener&utm_campaign=badger)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3ca13e811c044010959bdb1dda2465ce)](https://www.codacy.com/app/vb4007/electron-folder-opener?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Raul6469/electron-folder-opener&amp;utm_campaign=Badge_Grade)
 
 ## What is this ?
 
