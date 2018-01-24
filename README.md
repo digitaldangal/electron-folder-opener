@@ -1,5 +1,6 @@
 # Electron Folder Opener
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Raul6469/electron-folder-opener.svg)](https://greenkeeper.io/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3ca13e811c044010959bdb1dda2465ce)](https://www.codacy.com/app/vb4007/electron-folder-opener?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Raul6469/electron-folder-opener&amp;utm_campaign=Badge_Grade)
 
 ## What is this ?
