@@ -18,7 +18,7 @@
   "author": "Raul6469",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.8.2"
+    "electron": "~2.0.0"
   },
   "dependencies": {
     "chai": "^4.1.2",
